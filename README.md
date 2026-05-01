@@ -1,74 +1,166 @@
-First, clone this repository. This will download both the server to run it locally as well as the client and implementation files.
+# Pokémon Battle AI (ML Project)
 
+## 📌 Overview
+This project builds an AI system that predicts optimal moves in Pokémon battles using Machine Learning.
+
+The base battle simulation environment was provided by the Tryst IIT Delhi competition. On top of that, we built intelligent agents capable of learning and improving battle strategies.
+
+---
+
+## ❓ What Problem Does This Solve?
+In a Pokémon battle, selecting the best move at each turn is difficult because it depends on multiple factors:
+- Current HP of both Pokémon
+- Speed comparison (who attacks first)
+- Damage potential of moves
+- Opponent’s possible actions
+
+This project aims to:
+- Learn patterns from battle simulations
+- Predict the best move automatically
+
+---
+
+## ⚙️ System Overview
+
+The system consists of two main components:
+
+### 1. Rule-Based AI (AI1)
+This AI uses manually defined logic:
+- Calculates damage for all available moves
+- Compares speed to determine turn order
+- Predicts if a move can knock out the opponent
+
+It selects the move with the highest expected effectiveness.
+
+---
+
+### 2. Machine Learning AI (AI5)
+- Uses data generated from simulated battles
+- Trains a model to learn decision patterns
+- Predicts the best move based on current battle state
+
+This enables smarter decisions beyond fixed rules.
+
+---
+
+## 📊 Dataset Generation
+
+The dataset is generated automatically by running battle simulations between AI agents.
+
+Each row represents a battle decision and includes:
+- `my_hp` → your Pokémon’s health
+- `opp_hp` → opponent’s health
+- `my_speed`, `opp_speed`
+- `max_my_damage`, `max_opp_damage`
+- `move_id` → selected move
+
+Stored in:
 ```
-git clone https://github.com/Aries-IITD/Tryst-RL-Codebase.git server
+client/dataset.csv
 ```
 
-You also need to have Node.js installed v- SPECIFICALLY INSTALL v21.1.0. Remember to add it to PATH.
-Also, Python3 (preferably the latest version) is required.
+---
 
-```
-./pokemon-showdown 7850 --no-security
-```
-(Linux)
+## 🧠 Machine Learning Pipeline
 
-or 
+1. Load dataset  
+2. Remove missing/invalid values  
+3. Filter only attack actions  
+4. Remove outliers  
+5. Select relevant features  
+6. Encode move labels  
+7. Train-test split (60-40)  
+8. Train Random Forest model  
+9. Evaluate performance  
 
+---
+
+## 🤖 Model Details
+
+- **Algorithm:** Random Forest Classifier  
+- **Why chosen:**
+  - Handles complex patterns well  
+  - Works effectively on structured data  
+  - Fast and reliable  
+
+---
+
+## 🚀 How to Run
+
+### 1. Train the model
+```bash
+cd client
+python3 train_model.py
 ```
+
+### 2. Test the model
+```bash
+python3 test_model.py
+```
+
+### 3. Run battle simulation
+```bash
+python3 driver.py battle ai1 ai2 -n 10
+```
+
+---
+
+## 🔧 Customization
+
+Modify AI strategies in:
+```
+client/ai.py
+```
+
+You can:
+- Add new AI strategies (AI2, AI3, etc.)
+- Improve decision logic
+- Generate better training data
+
+---
+
+## 🌐 Optional Server Setup
+
+Original framework:
+https://github.com/Aries-IITD/Tryst-RL-Codebase
+
+To run the local server:
+```bash
 node pokemon-showdown 7850 --no-security
 ```
-(Windows)
 
-You can also choose the change the 7850 to another port number if you need to, but you will need to change client/env.txt if you do.
-Your server is now hosted locally and running. To stop it hit Ctrl-C in the terminal and just type the command in again to run it again.
-
-Enter `localhost:7850` in your browser to view the battles/actually participate in one! (or localhost:<port_no> if you changed it)
-Add yourself as an administrator to your local server by editing `server/config/usergroups.csv`.
-Simply add a line that is your username (you can create an account by visiting the site in your browser) followed by a , and ~.
-For example my username is `TheAbry`, so my `usergroups.csv` looks like:
+Open in browser:
 ```
-TheAbry,~
+http://localhost:7850
 ```
-Then when you log in as this username you will be able to see all battles taking place on your server.
 
-For the bot client, in the `client` folder create a venv and install all dependencies from `requirements.txt`.
-```
-pip install -r requirements.txt
-```
-Even if the pip install raises an error, you can try running the next steps and installing required modules independently if it raises an error.
+---
 
-Put the port number for your server in the link in `client/env.txt`. Change the second line to your assigned code.
+## 📊 Features Used
 
-In order to send challenges to the bots or queue up on the official competition ladder, you will have to connect to the competition server. For this, change the first line to the IP of the server instead. The IP (and port) for the server is given in the env.txt as well.
+- `my_hp`
+- `opp_hp`
+- `my_speed`
+- `opp_speed`
+- `faster`
+- `max_my_damage`
+- `max_opp_damage`
 
-You can run 
-```
-python(or python3) driver.py -h
-```
-to check all the command line arguments. You can change the mode to 
-- Battle against one of your own AIs, using the battle argument
-- Wait on the hosted ladder for battles, using the ladder argument. While your ELO gained won't be counted, it is encouraged that everyone does this so you can get a wider experience by battling others' bots.
-- Send challenges to other users, using the challenge argument (used to send challenges to the bots).
+---
 
-We have given 5 options for AIs: random, ai1, ai2, ai3, ai4. Random is pre-implemented, while ai1-ai4 can be implemented in `ai.py`.
+## 🎥 Demo
 
-If you get an error for no module `poke_env`, try pip installing it separately using `pip install poke_env` or upgrading your pip then repeating the pip install steps again.
-If you get an error in running the driver.py after a crash, restart the server.
+https://youtu.be/af5FeGHQ6FY
 
-The Bot IDs to send challenges to, to test your implementations, are:
-5ccf9bAIPly11
-2d8493AIPly11
-b815fcAIPly11
-e75c45AIPly11
+---
 
-As an example, you can do
-```
-python driver.py challenge ai1 5ccf9bAIPly11 --replay
-```
-to make your ai1 fight the given bot, and download the replay to your device.
+## 🙏 Acknowledgment
 
-Poke-Env library is open source and available at https://github.com/hsahovic/poke-env/
+Base framework provided by Tryst IIT Delhi  
+https://github.com/Aries-IITD/Tryst-RL-Codebase
 
+---
 
+## 👤 Author
 
-
+Garv Chanana
