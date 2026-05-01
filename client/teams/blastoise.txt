@@ -1,0 +1,59 @@
+Rapidash  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Flare Blitz  
+- Low Kick  
+- High Horsepower  
+- Will-O-Wisp  
+
+Blastoise-Mega  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Modest Nature  
+- Hydro Pump  
+- Surf  
+- Ice Beam  
+- Dark Pulse  
+
+Roserade  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Modest Nature  
+- Sludge Bomb  
+- Giga Drain  
+- Shadow Ball  
+- Toxic  
+
+Alakazam  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Modest Nature  
+- Psychic  
+- Shadow Ball  
+- Taunt  
+- Nasty Plot  
+
+Donphan  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Earthquake  
+- Rock Slide  
+- Fire Fang  
+- Ice Shard  
+
+Nidoking  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Rash Nature  
+- Earthquake  
+- Thunderbolt  
+- Ice Beam  
+- Superpower  

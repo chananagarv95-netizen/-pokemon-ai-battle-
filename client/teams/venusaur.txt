@@ -1,0 +1,59 @@
+Arcanine  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Flare Blitz  
+- Superpower  
+- Flamethrower  
+- Crunch  
+
+Starmie  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Modest Nature  
+- Surf  
+- Psychic  
+- Ice Beam  
+- Thunder Wave  
+
+Venusaur-Mega  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Quiet Nature  
+- Power Whip  
+- Giga Drain  
+- Sludge Bomb  
+- Toxic  
+
+Scizor  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Bullet Punch  
+- U-turn  
+- Swords Dance  
+- Night Slash 
+
+Nidoking  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Rash Nature  
+- Earthquake  
+- Thunderbolt  
+- Ice Beam  
+- Superpower  
+
+Snorlax  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Brave Nature  
+- Body Slam  
+- Earthquake  
+- Thunder Punch  
+- Fire Punch

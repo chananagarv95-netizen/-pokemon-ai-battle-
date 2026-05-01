@@ -1,0 +1,60 @@
+===== BATTLE battle-gen9nationaldex-200535 =====
+Won: False
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200536 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200537 =====
+Won: False
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200538 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200539 =====
+Won: False
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200540 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200541 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200542 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200543 =====
+Won: True
+
+No message logs available.
+
+
+===== BATTLE battle-gen9nationaldex-200544 =====
+Won: False
+
+No message logs available.
+
+

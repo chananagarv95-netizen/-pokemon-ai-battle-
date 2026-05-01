@@ -1,0 +1,59 @@
+Charizard-Mega-Y  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Hasty Nature  
+- Fire Blast  
+- Flamethrower  
+- Thunder Punch  
+- Earthquake  
+
+Gyarados  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Waterfall  
+- Earthquake  
+- Crunch  
+- Taunt  
+
+Breloom  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Seed Bomb  
+- Mach Punch  
+- Toxic  
+- Spore  
+
+Gengar  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Modest Nature  
+- Shadow Ball  
+- Sludge Bomb  
+- Thunderbolt  
+- Nasty Plot  
+
+Donphan  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Adamant Nature  
+- Earthquake  
+- Rock Slide  
+- Fire Fang  
+- Ice Shard  
+
+Snorlax  
+Ability: No Ability  
+Level: 50  
+EVs: 1 HP  
+Brave Nature  
+- Body Slam  
+- Earthquake  
+- Thunder Punch  
+- Fire Punch

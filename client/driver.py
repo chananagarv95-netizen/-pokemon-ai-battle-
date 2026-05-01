@@ -1,0 +1,168 @@
+from include import Ply, RPly, CHARIZARD, TEAMS, Battle
+from poke_env import ServerConfiguration
+from poke_env.data import GenData
+import asyncio
+import argparse
+import os
+from ai import *
+import random
+
+LOG_FILE = "battle_logs.txt"
+CSV_FILE = "dataset.csv"
+
+key_to_class = {
+    "random": RPly,
+    "ai1": AIPly1,
+    "ai2": AIPly2,
+    "ai3": AIPly3,
+    "ai4": AIPly4,
+    "ai5": AIPly5,
+}
+
+AIS = list(key_to_class.keys())
+
+parser = argparse.ArgumentParser(
+    description="Driver script for executing battles with your custom AI"
+)
+
+common = argparse.ArgumentParser(add_help=False)
+common.add_argument("ai1", choices=AIS, help="First player class")
+common.add_argument("--id", type=str, default="", help="ID for account name")
+common.add_argument(
+    "--replay",
+    "--replays",
+    "-r",
+    action="store_true",
+    help="Save replays in replays folder",
+)
+common.add_argument(
+    "--n",
+    "--num_battles",
+    "--num",
+    type=int,
+    default=1,
+    help="Number of battles / challenges",
+)
+
+subparsers = parser.add_subparsers(dest="mode", required=True)
+
+battle = subparsers.add_parser("battle", parents=[common])
+battle.add_argument(
+    "ai2",
+    nargs="?",
+    default="random",
+    choices=AIS,
+    help="Second player class to battle against",
+)
+
+ladder = subparsers.add_parser("ladder", parents=[common])
+ladder.add_argument("ai2", nargs="?", type=str, default="random")
+
+challenge = subparsers.add_parser("challenge", parents=[common])
+challenge.add_argument("ai2", type=str, help="Player name to send challenges to")
+
+accept = subparsers.add_parser("accept", parents=[common])
+accept.add_argument(
+    "ai2",
+    nargs="?",
+    type=str,
+    default=None,
+    help="Player name to accept challenges from",
+)
+
+args = parser.parse_args()
+
+ai1 = args.ai1
+ai2 = args.ai2
+suff = args.id
+num_battles = args.n
+mode = args.mode
+save_replay = "replay" if args.replay else False
+
+server_url = ""
+
+try:
+    with open("env.txt") as F:
+        data = [x.strip() for x in F.readlines()]
+        server_url = data[0]
+        codes = data[1:]
+except:
+    raise Exception("Env file error! Check env.txt")
+
+codes = [code + suff for code in codes]
+
+LocalServerConfig = ServerConfiguration(
+    server_url,
+    "https://play.pokemonshowdown.com/action.php?",
+)
+
+def get_kwargs(ply, sr=False, ind=0):
+    D = {
+        "server_configuration": LocalServerConfig,
+        "code": codes[ind],
+        "start_timer_on_battle_start": True,
+        "battle_format": "gen9nationaldex",
+        "log_level": 0,
+        "save_replays": sr,
+    }
+
+    if ply == "random":
+        filename = random.choice(TEAMS)
+    else:
+        filename = key_to_class[ply].TEAM
+
+    if not os.path.exists(filename):
+        filename = CHARIZARD
+
+    with open(filename, "r") as file:
+        D["team"] = file.read().strip()
+
+    return D
+
+
+# ================= CREATE PLAYERS =================
+player1 = key_to_class[ai1](**get_kwargs(ai1, sr=save_replay))
+
+if mode == "battle":
+    player2 = key_to_class[ai2](**get_kwargs(ai2))
+else:
+    player2 = None
+
+
+# ================= MAIN FUNCTION =================
+async def main(log=False):
+
+    if mode == "battle":
+        await player1.battle_against(player2, n_battles=num_battles)
+
+    elif mode == "ladder":
+        await player1.ladder(num_battles)
+
+    elif mode == "accept":
+        await player1.accept_challenges(None, n_challenges=num_battles)
+
+    elif mode == "challenge":
+        await player1.send_challenges(ai2, n_challenges=num_battles)
+
+    # ===== PRINT WINRATE =====
+    if log:
+        battles = [b for b in player1.battles.values() if b is not None]
+
+        if len(battles) == 0:
+            print("No battles played.")
+            return
+
+        valid_results = [b.won for b in battles if b.won is not None]
+        winrate = sum(valid_results) / len(valid_results) if valid_results else 0
+        print("Winrate:", winrate)
+
+
+# ================= RUN =================
+if __name__ == "__main__":
+    asyncio.run(main(True))
+
+    # ✅ SAVE DATASET (CORRECT WAY)
+    try:
+        player1.save_dataset("dataset.csv")
+    except Exception as e:
+        print("Dataset save error:", e)

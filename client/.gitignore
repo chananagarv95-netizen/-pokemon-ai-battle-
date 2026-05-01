@@ -1,0 +1,4 @@
+env.txt
+__pycache__/
+venv/
+replay/

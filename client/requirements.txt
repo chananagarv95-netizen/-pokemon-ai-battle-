@@ -1,0 +1,14 @@
+certifi==2025.1.31
+charset-normalizer==3.4.1
+cloudpickle==3.1.1
+Farama-Notifications==0.0.4
+gymnasium==1.1.1
+idna==3.10
+numpy==2.2.3
+orjson==3.10.15
+poke_env==0.8.3
+requests==2.32.3
+tabulate==0.9.0
+typing_extensions==4.12.2
+urllib3==2.3.0
+websockets==12.0
