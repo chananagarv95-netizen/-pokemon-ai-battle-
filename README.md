@@ -149,8 +149,7 @@ http://localhost:7850
 ---
 
 ## 🎥 Demo
-
-https://youtu.be/af5FeGHQ6FY
+https://youtu.be/IRVGCFmO8io
 
 ---
 
@@ -163,4 +162,4 @@ https://github.com/Aries-IITD/Tryst-RL-Codebase
 
 ## 👤 Author
 
-Garv Chanana
+Garv 
