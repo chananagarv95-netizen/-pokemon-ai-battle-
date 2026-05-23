@@ -3,163 +3,151 @@
 ## 📌 Overview
 This project builds an AI system that predicts optimal moves in Pokémon battles using Machine Learning.
 
-The base battle simulation environment was provided by the Tryst IIT Delhi competition. On top of that, we built intelligent agents capable of learning and improving battle strategies.
+The base battle simulation framework was provided by the Tryst IIT Delhi competition. This project extends that framework by implementing custom AI strategies and integrating a machine learning model for intelligent decision-making.
 
 ---
 
-## ❓ What Problem Does This Solve?
-In a Pokémon battle, selecting the best move at each turn is difficult because it depends on multiple factors:
-- Current HP of both Pokémon
-- Speed comparison (who attacks first)
-- Damage potential of moves
-- Opponent’s possible actions
-
-This project aims to:
-- Learn patterns from battle simulations
-- Predict the best move automatically
+## 🎥 Demo Video
+https://youtu.be/af5FeGHQ6FY
 
 ---
 
-## ⚙️ System Overview
+## 🔗 GitHub Repository
+https://github.com/chananagarv95-netizen/-pokemon-ai-battle-
 
-The system consists of two main components:
+---
+
+## ⚙️ My Contributions
+- Implemented multiple AI strategies (AI1, AI2, AI3…)
+- Built a rule-based AI (AI1) using damage + speed logic
+- Created a dataset from simulated battles
+- Developed a machine learning pipeline
+- Trained a Random Forest model to predict optimal moves
+- Evaluated model performance (training/testing accuracy)
+
+---
+
+## 🧠 How It Works
 
 ### 1. Rule-Based AI (AI1)
-This AI uses manually defined logic:
-- Calculates damage for all available moves
-- Compares speed to determine turn order
-- Predicts if a move can knock out the opponent
+- Calculates damage
+- Compares speed
+- Predicts KO
+- Chooses best move
 
-It selects the move with the highest expected effectiveness.
-
----
-
-### 2. Machine Learning AI (AI5)
-- Uses data generated from simulated battles
-- Trains a model to learn decision patterns
-- Predicts the best move based on current battle state
-
-This enables smarter decisions beyond fixed rules.
+### 2. Machine Learning Model (AI5)
+- Learns from battle data
+- Uses Random Forest
+- Predicts best move based on state
 
 ---
 
-## 📊 Dataset Generation
+## 📊 Dataset
+Generated using battle simulations.
 
-The dataset is generated automatically by running battle simulations between AI agents.
-
-Each row represents a battle decision and includes:
-- `my_hp` → your Pokémon’s health
-- `opp_hp` → opponent’s health
-- `my_speed`, `opp_speed`
-- `max_my_damage`, `max_opp_damage`
-- `move_id` → selected move
-
-Stored in:
-```
-client/dataset.csv
-```
+Features used:
+- my_hp  
+- opp_hp  
+- my_speed  
+- opp_speed  
+- faster  
+- max_my_damage  
+- max_opp_damage  
 
 ---
 
-## 🧠 Machine Learning Pipeline
+## 🚀 Running the Project
 
-1. Load dataset  
-2. Remove missing/invalid values  
-3. Filter only attack actions  
-4. Remove outliers  
-5. Select relevant features  
-6. Encode move labels  
-7. Train-test split (60-40)  
-8. Train Random Forest model  
-9. Evaluate performance  
+This project includes all dependencies (node_modules) so the server can run directly.
 
 ---
 
-## 🤖 Model Details
+## 🖥️ Start Pokémon Showdown Server
 
-- **Algorithm:** Random Forest Classifier  
-- **Why chosen:**
-  - Handles complex patterns well  
-  - Works effectively on structured data  
-  - Fast and reliable  
+### Linux / Mac
+./pokemon-showdown 7850 --no-security
 
----
-
-## 🚀 How to Run
-
-### 1. Train the model
-```bash
-cd client
-python3 train_model.py
-```
-
-### 2. Test the model
-```bash
-python3 test_model.py
-```
-
-### 3. Run battle simulation
-```bash
-python3 driver.py battle ai1 ai2 -n 10
-```
-
----
-
-## 🔧 Customization
-
-Modify AI strategies in:
-```
-client/ai.py
-```
-
-You can:
-- Add new AI strategies (AI2, AI3, etc.)
-- Improve decision logic
-- Generate better training data
-
----
-
-## 🌐 Optional Server Setup
-
-Original framework:
-https://github.com/Aries-IITD/Tryst-RL-Codebase
-
-To run the local server:
-```bash
+### Windows
 node pokemon-showdown 7850 --no-security
-```
 
-Open in browser:
-```
+---
+
+## 🌐 Open UI
 http://localhost:7850
-```
 
 ---
 
-## 📊 Features Used
-
-- `my_hp`
-- `opp_hp`
-- `my_speed`
-- `opp_speed`
-- `faster`
-- `max_my_damage`
-- `max_opp_damage`
+## ⚠️ Requirements
+- Node.js (v21.1.0 recommended)
+- Python 3
 
 ---
 
-## 🎥 Demo
-https://youtu.be/IRVGCFmO8io
+## 🤖 Run AI Client
+
+Navigate to client folder:
+cd client pip install -r requirements.txt
+
+Run help:
+python3 driver.py -h
+
+---
+
+## ⚔️ Run Battle
+
+Example:
+python3 driver.py battle ai1 ai2 --n 10
+
+---
+
+## 🧪 Challenge Bots
+
+Example:
+python3 driver.py challenge ai1 5ccf9bAIPly11 --replay
+
+Bot IDs:
+- 5ccf9bAIPly11  
+- 2d8493AIPly11  
+- b815fcAIPly11  
+- e75c45AIPly11  
+
+---
+
+## ⚙️ Configuration
+
+Edit:
+client/env.txt
+
+- Set server port  
+- Set connection settings  
+
+---
+
+## 🔧 Custom AI
+
+Modify:
+client/ai.py
+
+Add your own strategies (ai2, ai3, etc.)
+
+---
+
+## 📁 Notes
+
+- Full server + dependencies are included for direct execution  
+- If any module error occurs:
+pip install poke_env
 
 ---
 
 ## 🙏 Acknowledgment
+Base framework provided by:
+https://github.com/Aries-IITD/Tryst-RL-Codebase  
 
-Base framework provided by Tryst IIT Delhi  
-https://github.com/Aries-IITD/Tryst-RL-Codebase
+Poke-Env:
+https://github.com/hsahovic/poke-env  
 
 ---
 
 ## 👤 Author
-
 Garv 
