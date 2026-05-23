@@ -1,9 +1,15 @@
-# Pokémon Battle AI (ML Project)
+# Pokémon Battle AI (Machine Learning Project)
 
 ## 📌 Overview
-This project builds an AI system that predicts optimal moves in Pokémon battles using Machine Learning.
+This project builds an intelligent AI system for Pokémon battles using Machine Learning and rule-based strategies.
 
-The base battle simulation framework was provided by the Tryst IIT Delhi competition. This project extends that framework by implementing custom AI strategies and integrating a machine learning model for intelligent decision-making.
+The base battle simulation framework was provided during the Tryst IIT Delhi competition. This project extends the framework by implementing custom AI agents, generating battle datasets, and training a machine learning model to predict optimal battle moves.
+
+---
+
+## 🎮 Battle Demo
+
+![Battle Demo](demo.gif)
 
 ---
 
@@ -17,137 +23,221 @@ https://github.com/chananagarv95-netizen/-pokemon-ai-battle-
 
 ---
 
+## 🧠 Features
+
+- Multiple custom AI battle agents
+- Rule-based battle decision system
+- Machine Learning move prediction
+- Battle dataset generation pipeline
+- Random Forest model training
+- Pokémon Showdown battle simulation
+- Automated AI vs AI battles
+
+---
+
 ## ⚙️ My Contributions
-- Implemented multiple AI strategies (AI1, AI2, AI3…)
-- Built a rule-based AI (AI1) using damage + speed logic
-- Created a dataset from simulated battles
-- Developed a machine learning pipeline
-- Trained a Random Forest model to predict optimal moves
-- Evaluated model performance (training/testing accuracy)
+
+### ✅ Rule-Based AI
+Implemented AI strategies using:
+- Damage calculation
+- Speed comparison
+- KO prediction
+- Best-move selection logic
+
+### ✅ Dataset Generation
+- Generated battle data from simulated Pokémon matches
+- Extracted battle-state features for ML training
+
+### ✅ Machine Learning Pipeline
+- Preprocessed battle datasets
+- Trained a Random Forest classifier
+- Evaluated model performance using train/test accuracy
+
+### ✅ Battle Automation
+- Automated AI vs AI battles
+- Integrated ML predictions into battle decisions
 
 ---
 
-## 🧠 How It Works
+## 🧠 AI Architecture
 
-### 1. Rule-Based AI (AI1)
-- Calculates damage
-- Compares speed
-- Predicts KO
-- Chooses best move
+### 1️⃣ Rule-Based AI (AI1)
+Uses:
+- Damage estimation
+- Speed checks
+- KO prediction
+- Strategic move selection
 
-### 2. Machine Learning Model (AI5)
-- Learns from battle data
-- Uses Random Forest
-- Predicts best move based on state
+### 2️⃣ Machine Learning AI (AI5)
+Uses:
+- Random Forest Classifier
+- Learned battle patterns from generated datasets
+- Predicts the optimal move based on current battle state
 
 ---
 
-## 📊 Dataset
-Generated using battle simulations.
+## 📊 Dataset Features
 
-Features used:
-- my_hp  
-- opp_hp  
-- my_speed  
-- opp_speed  
-- faster  
-- max_my_damage  
-- max_opp_damage  
+The ML model was trained using battle-state features such as:
+
+- `my_hp`
+- `opp_hp`
+- `my_speed`
+- `opp_speed`
+- `faster`
+- `max_my_damage`
+- `max_opp_damage`
+
+---
+
+## 🧪 Technologies Used
+
+### Backend / Simulation
+- Python
+- Pokémon Showdown
+- poke-env
+
+### Machine Learning
+- scikit-learn
+- pandas
+- numpy
+
+### Battle Framework
+- Node.js
 
 ---
 
 ## 🚀 Running the Project
 
-This project includes all dependencies (node_modules) so the server can run directly.
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/chananagarv95-netizen/-pokemon-ai-battle-
+cd -pokemon-ai-battle-
+```
 
 ---
 
-## 🖥️ Start Pokémon Showdown Server
+## 2️⃣ Install Python Requirements
 
-### Linux / Mac
-./pokemon-showdown 7850 --no-security
+```bash
+cd client
+pip install -r requirements.txt
+```
 
-### Windows
+---
+
+## 3️⃣ Start Pokémon Showdown Server
+
+Open a new terminal:
+
+```bash
+cd server
 node pokemon-showdown 7850 --no-security
+```
 
 ---
 
-## 🌐 Open UI
+## 4️⃣ Open Battle UI
+
+Open in browser:
+
+```text
 http://localhost:7850
+```
 
 ---
 
-## ⚠️ Requirements
-- Node.js (v21.1.0 recommended)
-- Python 3
+## 5️⃣ Run AI Battle
 
----
+Open another terminal:
 
-## 🤖 Run AI Client
-
-Navigate to client folder:
-cd client pip install -r requirements.txt
-
-Run help:
-python3 driver.py -h
-
----
-
-## ⚔️ Run Battle
-
-Example:
+```bash
+cd client
 python3 driver.py battle ai1 ai2 --n 10
+```
 
 ---
 
-## 🧪 Challenge Bots
+## ⚔️ Challenge Competition Bots
 
-Example:
+```bash
 python3 driver.py challenge ai1 5ccf9bAIPly11 --replay
+```
 
-Bot IDs:
-- 5ccf9bAIPly11  
-- 2d8493AIPly11  
-- b815fcAIPly11  
-- e75c45AIPly11  
+### Bot IDs
+- `5ccf9bAIPly11`
+- `2d8493AIPly11`
+- `b815fcAIPly11`
+- `e75c45AIPly11`
 
 ---
 
 ## ⚙️ Configuration
 
 Edit:
-client/env.txt
 
-- Set server port  
-- Set connection settings  
+```text
+client/env.txt
+```
+
+Configure:
+- Server port
+- Connection settings
 
 ---
 
-## 🔧 Custom AI
+## 🔧 Custom AI Development
 
 Modify:
+
+```text
 client/ai.py
+```
 
-Add your own strategies (ai2, ai3, etc.)
-
----
-
-## 📁 Notes
-
-- Full server + dependencies are included for direct execution  
-- If any module error occurs:
-pip install poke_env
+Add your own AI agents such as:
+- ai2
+- ai3
+- ai4
+- ai5
 
 ---
 
-## 🙏 Acknowledgment
-Base framework provided by:
-https://github.com/Aries-IITD/Tryst-RL-Codebase  
+## 📁 Full Project Files
 
-Poke-Env:
-https://github.com/hsahovic/poke-env  
+A complete project folder (including server dependencies) is available here:
+
+[Google Drive Project Folder](YOUR_GOOGLE_DRIVE_LINK_HERE)
+
+---
+
+## ⚠️ Requirements
+
+- Python 3
+- Node.js
+- npm
+
+If any dependency issue occurs:
+
+```bash
+pip install poke-env
+```
+
+---
+
+## 📚 References & Acknowledgment
+
+### Tryst IIT Delhi Base Framework
+https://github.com/Aries-IITD/Tryst-RL-Codebase
+
+### poke-env Library
+https://github.com/hsahovic/poke-env
+
+### Pokémon Showdown
+https://github.com/smogon/pokemon-showdown
 
 ---
 
 ## 👤 Author
-Garv 
+
+**Garv**
